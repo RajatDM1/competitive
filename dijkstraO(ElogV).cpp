@@ -1,8 +1,8 @@
-/* ===== ===== =====
 
-Dijkstra's Algorithm using C++ STL - O(E log V) implementation
 
-===== ===== ===== */
+//Dijkstra's Algorithm using C++ STL - O(E log V) implementation
+
+
 
 #include <cstdio>
 #include <climits>
