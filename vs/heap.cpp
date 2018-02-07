@@ -12,7 +12,7 @@ findmin = O(1)
 
 struct vertex
 {
-    int label, value;
+    int label, value;//values used for priority queue
 };
 
 // Adds an element to the heap and returns the size - O(log N)
@@ -45,7 +45,7 @@ int addVertex(struct vertex minHeap[], int size, struct vertex newValue)
     return size;
 }
 
-// Applies the heapify procedure - O(log N)
+// Applies the heapify procedure - O(log N) goes up to down
 void heapify(struct vertex minHeap[], int size, int index)
 {
     int i = index;
@@ -136,7 +136,7 @@ int deleteVertex(struct vertex minHeap[], int size, int index)
     return size;
 }
 
-// Build Heap Procedure - O(N)
+// Build Heap Procedure - O(N) works down to up
 void buildHeap(struct vertex minHeap[], int size)
 {
     int i;
