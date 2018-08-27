@@ -1,50 +1,40 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define MAX 100001
-#define lli long long int
+
 int main(){
-	int n,i,j,flag,t;
-	stack<int> s;
-	while(1)
-	{	
-		flag = 1,j=1;
-		scanf("%d",&n);
-		if(n==0)
-			break;
-		for (int i = 0; i < n; ++i)
+	int n,flag,j,x,i;
+	scanf("%d",&n);
+	while(n!=0)
+	{
+		stack<int> s;j=1;
+		for(i=0;i<n;i++)
 		{
-			scanf("%d",&t);
-			if(t!=j)
-				{
-					s.push(t);
-					printf("pushed %d in stack\n",t);
-					// show(s);
-				}
-			else{
+			scanf("%d",&x);
+			if(x==j)
+			{
 				j++;
-				if(!s.empty())
+				while(!s.empty()&&s.top()==j)
 				{
-					while(s.top() == j)
-					{
-						j++;
-						printf("poped out of stack %d\n",s.top());
-						s.pop();
-						// show(s);
-					}
+					s.pop();
+					j++;
 				}
+			}else
+			{
+				s.push(x);
 			}
 		}
 		while(!s.empty())
 		{
 			if(s.top()!=j)
-				flag = 0;
-			s.pop();
-			j++;
+				break;
+			s.pop();j++;
 		}
-		if(flag)
-			cout<<"yes"<<endl;
+		// cout<<"value of j"<<j<<endl;
+		if(j==n+1)
+			printf("yes\n");
 		else
-			cout<<"no"<<endl;
-	}
+			printf("no\n");
+		scanf("%d",&n);
+	}	
 	return 0;
 }
