@@ -4,26 +4,21 @@ using namespace std;
 #define lli long long int
 #define VI <vector <int> >
 #define pb push_back 
-int gcd(int a,int b)
+int etf(int x)
 {
-	if(a==0||b==0)
-		return 0;
-	if(a==b)
-		return a;
-	if(a>b)
-		return gcd(a-b,b);
-	return gcd(a,b-a);
-}
-void check(int x)
-{
-	int i,c;
-	c=0;
-	for(i = 1;i<=x;i++)
+	lli res = x;
+	for(int i = 2;i*i<=x;i++)
 	{
-		if(gcd(i,x)==1)
-			c++;
+		if(x%i==0)
+		{
+			while(x%i==0)
+				x/=i;
+			res-=res/i;
+		}
 	}
-	printf("%d\n",c);
+	if(x>1)
+		res-=res/x;
+	return res;
 }
 int main(){
 	int t;
@@ -32,7 +27,7 @@ int main(){
 	while(t--)
 	{
 		scanf("%lld",&x);
-		check(x);
+		printf("%d\n",etf(x));
 	}	
 	return 0;
 }
