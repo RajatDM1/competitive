@@ -1,3 +1,5 @@
 refer/
 solutions/bs/*.out
 solutions/spoj/*.out
+solutions/codeforces/*.out
+solutions/codeforces/del*.cpp
