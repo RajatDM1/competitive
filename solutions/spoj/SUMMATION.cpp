@@ -33,4 +33,4 @@ int main(){
 		cout<<"Case "<<cnt++<<":"<<sum<<endl;
 	}	
 	return 0;
-}
+}	
