@@ -1,24 +1,68 @@
-#include <bits/stdc++.h>
+#include <vector>
+#include <algorithm>
+#include <iostream>
+#include <string>
+
 using namespace std;
-#define MAX 100001
-#define lli long long int
-#define VI <vector <int> >
-#define pb push_back 
-int main(){
-	string str="";
-	cout<<str<<endl;
-	string s1 = "adbcf";
-	cout<<s1<<endl;
-	int i=s1.length()-1;
-	while(i>=0)
-	{
-		str.pb(s1[i]);
-		i--;
-	}
-	cout<<str<<",";
-	sort(str.begin(),str.end());
-	cout<<str<<",";
-	reverse(str.begin(),str.end());
-	cout<<str<<endl;
+
+template<class T>
+void print (T t) {
+	for (const auto& e : t) cout << e << " ";
+	cout << endl;
+}
+
+void example1 () {
+	vector<int> v = { 2,3,4,1 };
+
+	print (v); // outputs 2 3 4 1
+	sort (v.begin (), v.end ());
+	print (v); // outputs 1 2 3 4
+}
+
+void example2 () {
+	vector<int> v = { 3,2,1,4 };
+
+	print (v); // outputs 3 2 1 4
+	sort (v.begin (), v.begin () + 2);
+	print (v); // outputs 2 3 1 4 
+}
+
+void example3 () {
+	vector<string> v = { "mouse", "dog", "cat", "ant", "moth", "elephant" };
+
+	print (v); // outputs mouse dog cat ant moth elephant
+	sort (v.begin (), v.end ());
+	print (v); // outputs ant cat dog elephant moth mouse 
+}
+
+void example4 () {
+	vector<string> v = { "mouse", "dog", "cat", "ant", "moth", "elephant" };
+
+	auto sortByLength = [](const auto& a, const auto& b) { return a.size () < b.size (); };
+
+	print (v); // outputs mouse dog cat ant moth elephant
+	sort (v.begin (), v.end (), sortByLength);
+	print (v); // outputs ant cat dog moth mouse elephant
+}
+
+void example5 () {
+	vector<string> v = { "mouse", "dog", "cat", "ant", "moth", "elephant" };
+
+	auto sortByLength = [](const auto& a, const auto& b) { return a.size () < b.size (); };
+
+	print (v); // outputs mouse dog cat ant moth elephant
+	stable_sort (v.begin (), v.end (), sortByLength);
+	print (v); // outputs dog cat ant moth mouse elephant
+}
+
+
+int main () {
+
+	example1 ();
+	example2 ();
+	example3 ();
+	example4 ();
+	example5 ();
+
 	return 0;
 }
