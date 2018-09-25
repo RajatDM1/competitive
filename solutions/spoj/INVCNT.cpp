@@ -36,9 +36,7 @@ int main(){
 	int a[MAX],b[MAX];
 	cin>>t;
 	while(t--)
-	{
-		
-		
+	{	
 		scanf("%d",&n);
 		for(i=0;i<n;i++)
 			bit[i]=0;
